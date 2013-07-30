@@ -1,4 +1,4 @@
-SolutionPipelineBuilder
+SolutionPipelineBuilder [![Build Status](https://travis-ci.org/f1nder/SolutionPipelineBuilder.png?branch=master)](https://travis-ci.org/f1nder/SolutionPipelineBuilder)
 =======================
 
 Query builder for Mongo Aggregation  [Framework](http://docs.mongodb.org/manual/aggregation/)
