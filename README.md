@@ -12,7 +12,7 @@ Library not yet ready.
   $query = new Query($configuration);
 
   $pipeline = $query->addStage('stage1')
-                ->match(['name' => 'sasha'])
+                ->match(['name' => 'sasha', 'lastname' => 'Grey'])
                 ->getQuery()
                 ->getPipeline();
 ```
