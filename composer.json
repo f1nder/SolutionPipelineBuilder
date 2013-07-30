@@ -1,0 +1,16 @@
+{
+    "name": "solution/pipeline-builder",
+    "description": "Build pipeline for Mongo Aggregation Query",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Aleksandr Moroz",
+            "email": "netstroix@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    }
+}
