@@ -86,7 +86,7 @@ class Query
                     }
                 } else {
                     if (is_string($key)) {
-                        $values[$key] = $args;
+                        $values[$key] = $this->convertArgs($args);
                     } else {
                         $values[] = $args;
                     }

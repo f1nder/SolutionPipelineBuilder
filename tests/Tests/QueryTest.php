@@ -70,30 +70,33 @@ class QueryTest extends QueryBaseTest
     {
         $pipeline = array(
             array(
+                '$group' => array(
+                    "_id" => array("tags" => '$tags', 'sum' => ['$sum' => '$sumField']),
+                    "authors" => array('$addToSet' => '$author'),
+                    "sum" => array('$sum' => '$fieldSum'),
+                ),
+            ),
+            array(
                 '$project' => array(
                     "author" => 1,
                     "tags" => 1,
                 )
             ),
             array('$unwind' => '$tags'),
-            array(
-                '$group' => array(
-                    "_id" => array("tags" => '$tags'),
-                    "authors" => array('$addToSet' => '$author'),
-                ),
-            ),
+
         );
         $exp = new Expr();
 
         $query = $this->query->addStage('stage1')
-            ->project(['author' => true, 'tags' => true])
-            ->unwind('$tags')
             ->group(
                 [
-                    '_id' => ['tags' => '$tags'],
+                    '_id' => ['tags' => '$tags', 'sum' => $exp->sum('$sumField')],
                     'authors' => $exp->addToSet('$author'),
+                    'sum' => $exp->sum('$fieldSum'),
                 ]
             )
+            ->project(['author' => true, 'tags' => true])
+            ->unwind('$tags')
             ->getQuery();
 
         $this->assertEquals($pipeline, $query->getPipeline());
