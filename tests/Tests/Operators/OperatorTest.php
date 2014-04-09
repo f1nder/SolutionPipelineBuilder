@@ -38,6 +38,8 @@ class OperatorTest extends QueryBaseTest
             ['lt', 'lt'],
             ['lte', 'lte'],
             ['ne', 'ne'],
+            ['in', 'in'],
+            ['nin', 'nin'],
             //conditional
             ['cond', 'cond'],
             ['ifNull', 'ifNull'],
