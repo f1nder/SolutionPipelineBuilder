@@ -172,6 +172,23 @@ class Expr
         return new Operators\Comparison\Ne($arg);
     }
 
+    /**
+     * @param $arg
+     * @return Comparison\In
+     */
+    public function in($arg)
+    {
+        return new Operators\Comparison\In($arg);
+    }
+
+    /**
+     * @param $arg
+     * @return Comparison\Nin
+     */
+    public function nin($arg)
+    {
+        return new Operators\Comparison\Nin($arg);
+    }
 
     /**
      * @param $arg
